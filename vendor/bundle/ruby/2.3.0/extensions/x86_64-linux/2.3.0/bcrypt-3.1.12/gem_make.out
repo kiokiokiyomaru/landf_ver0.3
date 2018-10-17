@@ -1,0 +1,19 @@
+current directory: /home/ec2-user/environment/landf_ver0/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+/usr/local/rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20181016-32648-1uefk0t.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/environment/landf_ver0/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/environment/landf_ver0/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+compiling crypt.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/ec2-user/environment/landf_ver0/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20181016-32648-5infcp

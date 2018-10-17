@@ -1,0 +1,45 @@
+<div class="contents row">
+  <!--form_tagメソッドを使って「/tweets/編集するツイートのid」に「patch」メソッドで情報を送信-->
+  <%= form_tag("/tweets/#{@tweet.id}", method: :patch) do %> 
+  <!--レコードのidをパスに含ませるため-->
+  
+    <h3>
+      あなたが投稿した預かり物を編集する
+    </h3>
+    <input type="text" name="image" value="<%= @tweet.image %>" placeholder="Image Url" autofocus="true">
+    <textarea name="text" placeholder="text" rows="10" cols="30"><%= @tweet.text %></textarea>
+    <input type="submit" value="ちょいと修正！">
+  <% end %>
+</div>
+　<!--引数２つ /tweetsにpostメソッドでフォームに入力された情報をテーブルに送信せよ-->
+
+
+
+
+下のコードい変えたいが、ワークしない！
+
+
+
+<div class="contents row">
+  <div class="container">
+    <%= form_for @tweet do |f| %>
+      <h3>
+        あなたが投稿した預かり物を編集する
+      </h3>
+      <%= f.file_field :image %>
+      
+        <p>預かり物のカテゴリー、何に変える？</p>
+        <select name="tweet[text]" id='tweet_text'>
+        <option value="その他" selected>その他</option>
+        <option value="文具類">文具類</option>
+        <option value="布製品(ハンカチとか服とか)">布製品(ハンカチとか服とか)</option>
+        <option value="本・テキストなど">本・テキストなど</option>
+        <option value="かさ">かさ</option>
+        <option value="高価そうなもの(財布とかスマホとか)">高価そうなもの(財布とかスマホとか)</option>
+        </select>
+
+      <%= f.submit value="ちょいと修正！" %>
+
+    <% end %>
+  </div>
+</div>　

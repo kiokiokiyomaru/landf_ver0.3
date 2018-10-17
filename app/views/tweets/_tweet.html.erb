@@ -1,0 +1,21 @@
+<div class="content_post" style="background-image: url(<%= tweet.image %>);">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '預り主←→落し主の連絡 ※書き込みは要ログイン', "/tweets/#{tweet.id}", method: :get %>   　　<!--コメント記入は本人以外でもできる-->
+            </li>
+            <% if user_signed_in? && current_user.id == tweet.user_id %>       <!--編集・削除ができる条件-->
+              <li>
+                <%= link_to '預り情報の削除  ※預り主のみ可', "/tweets/#{tweet.id}", method: :delete %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <%= simple_format(tweet.text) %>
+        <span class="name">
+          <a href="/users/<%= tweet.user_id %>">
+           <span><%= tweet.user.nickname %><span>さんの預かり物一覧　　<!--アソシエーションを利用　usersテーブルからnicknameを取ってきて変数tweet(投稿)の一つとせよ-->
+          </a>
+        </span>
+</div>

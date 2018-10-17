@@ -1,0 +1,13 @@
+<div class="contents search" >         
+  <!--#プルダウン検索-->
+  <%= form_tag('/tweets/select', method: :get) do %>
+    <%= select_tag "keyword", options_for_select([["探し物は何ですか？",""],["その他","その他"],["文具類","文具類"],["かさ","かさ"],["高価そうなもの(財布とかスマホとか)","高価そうなもの(財布とかスマホとか)"],["本・テキストなど","本・テキストなど"],["布製品(ハンカチとか服とか)","布製品(ハンカチとか服とか)"],["ねこ","ねこ"]]) %> 
+  <input type="submit" value="あってくれ～～！">
+  <% end %>
+</div>
+
+<div class="contents row" >
+  <% @tweets_selected.each do |tweet_selected| %>                              <!--|tweet|・・・変数tweetの定義はここで行われている-->
+    <%= render partial: "tweet", locals: { tweet: tweet_selected } %>   <!--</div>   部分テンプレート「_tweet.html.erb」の呼び出し-->
+  <% end %> 
+</div>

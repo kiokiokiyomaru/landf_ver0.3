@@ -1,0 +1,34 @@
+    <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">落とし物・忘れ物</a></h1>
+          <% if user_signed_in? %>
+            <div class="grid-6">
+<%= form_tag("tweets/:text/select", method: "get") do %>
+<%= text_field_tag :text , params[:text],placeholder: "探し物は何ですか？"%>
+<% end %>
+<!--#キーワード検索するタブを作る-->
+
+<%= form_tag("tweets/:text/select", method: "get") do %>
+<%= select_tag "text", options_for_select([["その他","その他"],["文具類","文具類"]]) %>
+<% end %>
+<!--#プルダウン検索バー生成-->
+
+<%= @tweets_selected %>
+#検索結果出力場所
+<!--,["布製品(ハンカチとか服とか)","布製品(ハンカチとか服とか)"],["本・テキストなど","本・テキストなど"]["かさ","かさ"]["高価そうなもの(財布とかスマホとか)","高価そうなもの(財布とかスマホとか)"]                -->
+         
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'post'%>
+              <a class="post" href="/tweets/new">預かってます! (投稿する)</a>
+            </div>
+            
+          <% else %>
+            <div class="grid-6">
+              <%= form_tag("tweets/select", method: "get") do %>
+              <input class="search__query" name="keyword" placeholder="作品名で検索" type="text" value=""><button class="btn-search" title="検索" type="submit"><i class="icon-search"></i></button></input>
+              <% end %>
+              <%= link_to "ログイン", new_user_session_path, :class => 'post' %>
+              <%= link_to "預り主とやり取りするには新規登録!", new_user_registration_path, :class => 'post' %>
+            </div>
+          <% end %>
+      </div>
+    </header>

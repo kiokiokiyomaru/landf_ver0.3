@@ -1,0 +1,30 @@
+<div class="contents row">
+  <div class="container">
+    <%= form_for @tweet do |f| %>
+      <h3>
+        預かり物を投稿する
+      </h3>
+      <!-- <textarea type="text" name="image" placeholder="写真をここにDrop!"></textarea> --> 
+      <%= f.file_field :image %>
+      <!--<input name="text" placeholder="text" rows="10" cols="30">-->
+      
+        <!--<form>-->
+        
+        <p>預かりモノのカテゴリーは？</p>
+        <select name="tweet[text]" id='tweet_text'>
+        <option value="その他" selected>その他</option>
+        <option value="文具類">文具類</option>
+        <option value="布製品(ハンカチとか服とか)">布製品(ハンカチとか服とか)</option>
+        <option value="本・テキストなど">本・テキストなど</option>
+        <option value="かさ">かさ</option>
+        <option value="高価そうなもの(財布とかスマホとか)">高価そうなもの(財布とかスマホとか)</option>
+        </select>
+        
+        <!-- f.select options_for_select(["その他"]) -->
+        <%= f.submit value="落とし主に。。。届け！" %>
+        <!--<input type="submit" value="SENT"> -->
+        <!--</form>-->
+      
+    <% end %>
+  </div>
+</div>
