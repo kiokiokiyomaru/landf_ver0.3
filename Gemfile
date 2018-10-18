@@ -53,3 +53,6 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
+group :production do
+  gem 'rails_12factor'
+end
